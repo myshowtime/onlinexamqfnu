@@ -7,7 +7,7 @@ import com.hp.onlinexamqfnu.po.Teacher;
 
 public interface ITeacherDao {
 
-	public List<Map<String,Object>> findAllTeacherInfo() ;
+	public List<Teacher> findAllTeacherInfo() ;
 	public void addTeacher(Teacher teacher);
 	public void updateTeacher(Teacher teacher,int oldId);
 	public Map<String,Object> findTeacherInfo(int id) ;

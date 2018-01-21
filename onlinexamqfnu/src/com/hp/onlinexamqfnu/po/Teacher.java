@@ -8,7 +8,7 @@ package com.hp.onlinexamqfnu.po;
 public class Teacher {
 	private int id;
 	private String name;
-	private String password;
+	private String pwd;
 	private String deptName;
 	private int role;
 	public int getId() {
@@ -23,11 +23,11 @@ public class Teacher {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getPassword() {
-		return password;
+	public String getpwd() {
+		return pwd;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setpwd(String pwd) {
+		this.pwd = pwd;
 	}
 	public String getDeptName() {
 		return deptName;
