@@ -2,6 +2,7 @@ package com.hp.onlinexamqfnu.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import com.hp.onlinexamqfnu.po.Student;
 import com.hp.onlinexamqfnu.util.DBUtil;
@@ -39,10 +40,9 @@ public class StudentDao implements IStudentDao{
 	}
 
 	@Override
-	public List<Student> findAll() {
-		String sql = "Select * From student";
-		List stuList =  null;
-		
+	public List<Map<String,Object>> findAll() {
+		String sql = "Select s.id,s.name,s.school,s.sex,s.pwd,s.deptName,s.born,sc.name As className From student As s, stuclass As sc where s.classId = sc.id";
+		List<Map<String, Object>> stuList =  null;
 		try {
 			stuList = db.getQueryList(sql);
 		} catch (Exception e) {

@@ -12,7 +12,14 @@ public class CourseDao implements ICourseDao{
 	DBUtil db = new DBUtil();
 	@Override
 	public List<TeacherCourseView> findAllTeaCourInfo() {
-		return null;
+		String sql = "Select tc.id as tcId,t.`name` as teacherName, c.`name` as courseName, sc.`name` as stuclassName from teachercourse as tc,teacher as t,stuclass as sc,course as c where  tc.classId = sc.id and tc.courseId = c.id and tc.teaId = t.id";
+		List tcList = null; 
+		try {
+			tcList = db.getQueryList(sql,new Object[] {});
+		}catch(Exception e ) {
+			e.printStackTrace();
+		}
+		return tcList;
 	}
 
 	@Override
@@ -23,8 +30,15 @@ public class CourseDao implements ICourseDao{
 
 	@Override
 	public TeacherCourse findTeacherCourseById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "Select * From teachercourse where id = ?";
+		TeacherCourse tc = null;
+		try {
+			tc= (TeacherCourse)db.getObject(TeacherCourse.class,sql,new Object[] {id});
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace( );
+		}
+		return tc;
 	}
 
 	@Override
@@ -63,14 +77,24 @@ public class CourseDao implements ICourseDao{
 
 	@Override
 	public void addTeacherCourse(TeacherCourse tc) {
-		// TODO Auto-generated method stub
-		
+		String sql = "Insert into teachercourse(teaId, courseId, classId) values(?, ?, ?)";
+		try {
+			db.execute(sql,new Object[] {tc.getTeaId(),tc.getCourseId(),tc.getClassId()});
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public TeacherCourseView findTeaCourInfoById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "Select * From teachercourse where id = ?";
+		TeacherCourseView tc = null;
+		try {
+			tc = (TeacherCourseView)db.getObject(TeacherCourseView.class,sql,new Object[] {id});
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return tc;
 	}
 
 	@Override
@@ -100,7 +124,13 @@ public class CourseDao implements ICourseDao{
 
 	@Override
 	public void updateTeacherCourse(TeacherCourse tc) {
-		
+		String sql = "Update teachercourse set teaId = ?, courseId = ?, classId = ? where id = ?";
+		try {
+			db.execute(sql,new Object[] {tc.getTeaId(),tc.getCourseId(),tc.getClassId(),tc.getId()});
+		} catch (Exception e) {
+			e.printStackTrace();
+			// TODO: handle exception
+		}
 	}
 
 	@Override
@@ -109,8 +139,9 @@ public class CourseDao implements ICourseDao{
 		return null;
 	}
 
+
 	@Override
-	public void deleteTourse(int tcId) {
+	public void deleteCourse(int tcId) {
 		// TODO Auto-generated method stub
 		
 	}

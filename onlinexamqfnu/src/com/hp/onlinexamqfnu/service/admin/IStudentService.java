@@ -9,5 +9,5 @@ public interface IStudentService {
 	public void addStudent(Student s);
 	public void updateStudent(Student s);
 	public Student findStudentById(int id);
-	public List<Student> findAll();
+	public List<Map<String, Object>> findAll();
 }

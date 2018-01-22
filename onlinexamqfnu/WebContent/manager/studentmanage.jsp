@@ -56,7 +56,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    <td >${s.pwd }</td>
 	    <td >${s.school }</td>
 	    <td >${s.deptName }</td>
-	    <td >${s.classId }</td>
+	    <td >${s.className }</td>
 	    <td><a href="<%=path %>/studentModifyServlet?id=${s.id }" target="_self">修改</a></td>
 	    <td>无权限</td>
 	  </tr>

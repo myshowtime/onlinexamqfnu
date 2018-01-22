@@ -61,7 +61,7 @@ textarea {
 					<td><select name="teacher">
 							<c:forEach var="tea" items="${teaList}">
 								<c:choose>
-									<c:when test="${tea.id==tc.teacherId}">
+									<c:when test="${tea.id==tc.teaId}">
 										<option value="${tea.id}" selected="selected">${tea.name}</option>
 									</c:when>
 									<c:otherwise>
@@ -76,7 +76,7 @@ textarea {
 					<td><select name="stuclass">
 							<c:forEach var="stucl" items="${stuclList}">
 								<c:choose>
-									<c:when test="${stucl.id==tc.stuclassId}">
+									<c:when test="${stucl.id==tc.classId}">
 										<option value="${stucl.id}" selected="selected">${stucl.name}</option>
 									</c:when>
 									<c:otherwise>

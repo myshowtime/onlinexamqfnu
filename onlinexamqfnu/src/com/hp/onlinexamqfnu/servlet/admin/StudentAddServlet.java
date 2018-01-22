@@ -41,7 +41,6 @@ public class StudentAddServlet extends HttpServlet {
 		request.setAttribute("deptList", Department.values());
 		request.getRequestDispatcher("manager/studentadd.jsp").forward(request, response);;
 	}
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

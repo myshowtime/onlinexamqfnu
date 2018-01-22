@@ -1,6 +1,7 @@
 package com.hp.onlinexamqfnu.service.admin;
 
 import java.util.List;
+import java.util.Map;
 
 import com.hp.onlinexamqfnu.dao.IStudentDao;
 import com.hp.onlinexamqfnu.dao.StudentDao;
@@ -25,7 +26,7 @@ public class StudentService implements IStudentService{
 	}
 
 	@Override
-	public List<Student> findAll() {	
+	public List<Map<String, Object>> findAll() {	
 		return sd.findAll();
 	}
 

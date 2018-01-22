@@ -12,13 +12,12 @@ public class CourseService implements ICourseService{
 	private ICourseDao cd = new CourseDao(); 
 	@Override
 	public List<TeacherCourseView> findAll() {
-		return null;
+		return cd.findAllTeaCourInfo();
 	}
 
 	@Override
-	public TeacherCourseView findTeacherCourseById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public TeacherCourse findTeacherCourseById(int id) {
+		return cd.findTeacherCourseById(id);
 	}
 
 	@Override
@@ -28,7 +27,6 @@ public class CourseService implements ICourseService{
 
 	@Override
 	public List<Course> findAllCourses() {
-		
 		return cd.findAllCourses();
 	}
 
@@ -39,8 +37,7 @@ public class CourseService implements ICourseService{
 
 	@Override
 	public void modifyTeacherCourse(TeacherCourse tc) {
-		// TODO Auto-generated method stub
-		
+		cd.updateTeacherCourse(tc);
 	}
 
 	@Override
@@ -67,8 +64,6 @@ public class CourseService implements ICourseService{
 
 	@Override
 	public void addSchedule(TeacherCourse tc) {
-		// TODO Auto-generated method stub
-		
+		cd.addTeacherCourse(tc);
 	}
-
 }

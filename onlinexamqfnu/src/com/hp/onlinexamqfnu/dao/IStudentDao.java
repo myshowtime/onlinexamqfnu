@@ -13,5 +13,5 @@ public interface IStudentDao {
 	
 	public Student findStudentById(int id);
 	
-	public List<Student> findAll();
+	public List<Map<String, Object>> findAll();
 }

@@ -10,7 +10,7 @@ public interface ICourseService {
 	
 	public List<TeacherCourseView> findAll();
 
-	public TeacherCourseView findTeacherCourseById(int id);
+	public TeacherCourse findTeacherCourseById(int id);
 	
 	public Course findCourseById(int id) ;
 	
