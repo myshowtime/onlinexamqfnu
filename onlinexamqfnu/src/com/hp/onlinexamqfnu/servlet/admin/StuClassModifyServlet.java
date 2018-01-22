@@ -20,7 +20,6 @@ import com.hp.onlinexamqfnu.util.Department;
 public class StuClassModifyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private IStuClassService scs = new StuClassService();
-       
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -47,7 +46,6 @@ public class StuClassModifyServlet extends HttpServlet {
 		String classId = request.getParameter("clanum");
 		String className = request.getParameter("claname");
 		String deptName =request.getParameter("depInfo");
-	
 		StuClass sc =  new StuClass();
 		sc.setId(Integer.valueOf(classId));
 		sc.setDeptName(deptName);

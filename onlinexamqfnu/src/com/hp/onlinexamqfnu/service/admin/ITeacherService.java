@@ -10,7 +10,7 @@ public interface ITeacherService {
 	public List<Teacher> findAll();
 	public void addTeacher(Teacher teacher);
 	public void updateTeacher(Teacher teacher,int oldid);
-	public Map<String,Object> findTeacherInfo(int id) ;
+	public Teacher findTeacherInfo(int id) ;
 	
-	public Teacher findClassesByTeacherId(int teacherId);
+	public List<Teacher> findClassesByTeacherId(int teacherId);
 }

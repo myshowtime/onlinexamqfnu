@@ -19,7 +19,7 @@ public class StudentDao implements IStudentDao{
 	}
 
 	public void updateStudent(Student s) {
-		String sql = "Update student set id = ?,name = ?, pwd = ?,school = ?, deptName = ?,sex = ?, born = ?. classId =? where id = ?";
+		String sql = "Update student set id = ?,name = ?, pwd = ?,school = ?, deptName = ?,sex = ?, born = ?, classId =? where id = ?";
 		try {
 			db.execute(sql,new Object[] {s.getId(),s.getName(),s.getPwd(),s.getSchool(),s.getDeptName(),s.getSex(),s.getBorn(),s.getClassId(),s.getId()});
 		}catch(Exception e) {

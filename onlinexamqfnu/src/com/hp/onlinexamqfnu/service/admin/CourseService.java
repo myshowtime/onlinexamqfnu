@@ -57,8 +57,7 @@ public class CourseService implements ICourseService{
 
 	@Override
 	public void addCourse(String courseName) {
-		// TODO Auto-generated method stub
-		
+		cd.addCourse(courseName);
 	}
 
 	@Override

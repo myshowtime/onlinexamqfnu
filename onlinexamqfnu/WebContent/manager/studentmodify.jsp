@@ -67,7 +67,7 @@ p{
       </tr>
       <tr>
         <td>课程方向：</td>
-        <td><select name="deptId"  >
+        <td><select name="deptName"  >
         <c:forEach items="${deptList }" var="deptName">
           <option value='${deptName }'  <c:if test="${deptName ==student.deptName }">selected="selected"</c:if> >${deptName }</option>
         </c:forEach>

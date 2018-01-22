@@ -10,7 +10,7 @@ public interface ITeacherDao {
 	public List<Teacher> findAllTeacherInfo() ;
 	public void addTeacher(Teacher teacher);
 	public void updateTeacher(Teacher teacher,int oldId);
-	public Map<String,Object> findTeacherInfo(int id) ;
+	public Teacher findTeacherInfo(int id) ;
 	
 	/**
 	 * 根据教师的ID号查询其负责的班级
@@ -19,5 +19,5 @@ public interface ITeacherDao {
 	 *            教师ID号
 	 * @return 返回查询的结果集，包括负责的班级的id号和班级名称等
 	 */
-	public Teacher findClassesByTeacherId(int teacherId);
+	public List<Teacher> findClassesByTeacherId(int teacherId);
 }

@@ -26,14 +26,13 @@ public class TeacherService implements ITeacherService{
 	}
 
 	@Override
-	public Map<String, Object> findTeacherInfo(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Teacher findTeacherInfo(int id) {
+		return td.findTeacherInfo(id);
 	}
 
 	@Override
-	public Teacher findClassesByTeacherId(int teacherId) {
-		return td.findClassesByTeacherId(teacherId);
+	public List<Teacher> findClassesByTeacherId(int teacherId) {
+		return null;
 	}
 
 }

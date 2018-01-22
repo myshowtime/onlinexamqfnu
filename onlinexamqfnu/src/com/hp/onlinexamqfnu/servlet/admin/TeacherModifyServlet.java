@@ -33,7 +33,7 @@ public class TeacherModifyServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("id");
-		Teacher t = ts.findClassesByTeacherId(Integer.valueOf(id));
+		Teacher t = ts.findTeacherInfo(Integer.valueOf(id));
 		request.setAttribute("teacherInfo", t);
 		request.setAttribute("deptList", Department.values());
 		request.getRequestDispatcher("manager/teachermodify.jsp").forward(request,response);

@@ -46,20 +46,19 @@ public class TeacherDao implements ITeacherDao{
 	}
 
 	@Override
-	public Map<String, Object> findTeacherInfo(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Teacher findClassesByTeacherId(int teacherId) {
+	public Teacher findTeacherInfo(int id) {
 		String sql = "Select * from teacher where id = ?";
 		try {
-			return (Teacher)db.getObject(Teacher.class,sql,new Object[] {teacherId});
+			return (Teacher)db.getObject(Teacher.class,sql,new Object[] {id});
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new Teacher();
 		}
+	}
+
+	@Override
+	public List<Teacher> findClassesByTeacherId(int teacherId) {
+		return null;
 	}
 
 }
