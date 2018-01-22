@@ -28,8 +28,8 @@ public class CourseService implements ICourseService{
 
 	@Override
 	public List<Course> findAllCourses() {
-		List courseList = cd.findAllCourses();
-		return courseList;
+		
+		return cd.findAllCourses();
 	}
 
 	@Override
