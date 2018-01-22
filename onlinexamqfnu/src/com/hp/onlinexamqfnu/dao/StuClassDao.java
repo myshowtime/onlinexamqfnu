@@ -31,8 +31,13 @@ public class StuClassDao implements IStuClassDao{
 
 	@Override
 	public void addStuClassById(StuClass sc) {
-		// TODO Auto-generated method stub
-		
+		String sql = "insert into stuclass values(?,?,?)";
+		try {
+			db.execute(sql, new Object[]{sc.getId(),sc.getName(),sc.getDeptName()});
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override

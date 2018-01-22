@@ -16,9 +16,9 @@ public class StuClassService implements IStuClassService{
 		return stuClassList;
 	}
 	 @Override
-	public Map<String, Object> addstuClass(StuClass sc) {
+	public void addStuClass(StuClass sc) {
 		// TODO Auto-generated method stub
-		return null;
+		scd.addStuClassById(sc);
 	}
 
 	@Override

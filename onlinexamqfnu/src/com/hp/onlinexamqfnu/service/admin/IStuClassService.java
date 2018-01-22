@@ -9,7 +9,7 @@ public interface IStuClassService {
 
 	public List<StuClass> findAll() ;
 	
-	public Map<String,Object> addstuClass(StuClass sc);
+	public void addStuClass(StuClass sc);
 	public void updateStuClass(StuClass sc);
 	public Map<String,Object> findStuClassById(int id);
 	
