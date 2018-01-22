@@ -24,14 +24,25 @@ public class TeacherDao implements ITeacherDao{
 
 	@Override
 	public void addTeacher(Teacher teacher) {
-		// TODO Auto-generated method stub
-		
+		String sql = "Insert into teacher values(?,?,?,?)";
+		try {
+			db.execute(sql,new Object[] {teacher.getId(),teacher.getName(),teacher.getpwd(),teacher.getDeptName()});
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public void updateTeacher(Teacher teacher, int oldId) {
-		// TODO Auto-generated method stub
-		
+		String sql = "update teacher set id=?,name=?,pwd=?,deptName =? where id =?";
+		try {
+			db.execute(sql,new Object[] {teacher.getId(),teacher.getName(),teacher.getpwd(),teacher.getDeptName(),teacher.getId()});
+		} catch (Exception e) {
+			e.printStackTrace();
+			// TODO: handle exception
+		}
+	
 	}
 
 	@Override
@@ -41,9 +52,14 @@ public class TeacherDao implements ITeacherDao{
 	}
 
 	@Override
-	public List<Map<String, Object>> findClassesByTeacherId(int teacherId) {
-		// TODO Auto-generated method stub
-		return null;
+	public Teacher findClassesByTeacherId(int teacherId) {
+		String sql = "Select * from teacher where id = ?";
+		try {
+			return (Teacher)db.getObject(Teacher.class,sql,new Object[] {teacherId});
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new Teacher();
+		}
 	}
 
 }

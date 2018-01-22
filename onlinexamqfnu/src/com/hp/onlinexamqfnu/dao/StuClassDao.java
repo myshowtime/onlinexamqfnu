@@ -2,9 +2,9 @@ package com.hp.onlinexamqfnu.dao;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import com.hp.onlinexamqfnu.po.StuClass;
+import com.hp.onlinexamqfnu.po.Student;
 import com.hp.onlinexamqfnu.util.DBUtil;
 
 public class StuClassDao implements IStuClassDao{
@@ -24,9 +24,14 @@ public class StuClassDao implements IStuClassDao{
 	}
 
 	@Override
-	public Map<String, Object> findStuClassById(int classId) {
-		// TODO Auto-generated method stub
-		return null;
+	public StuClass findStuClassById(int classId) {
+		String sql = "select * from stuclass where id = ?";
+		try {
+			return (StuClass)db.getObject(StuClass.class,sql,new Object[] {classId});
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new StuClass();
+		}
 	}
 
 	@Override
@@ -42,8 +47,13 @@ public class StuClassDao implements IStuClassDao{
 
 	@Override
 	public void updateStuClassById(StuClass sc) {
-		// TODO Auto-generated method stub
-		
+		String sql = "update stuclass set id = ?, name = ?, deptName = ? where id = ?";
+		try {
+			db.execute(sql,new Object[] {sc.getId(),sc.getName(),sc.getDeptName(),sc.getId()});
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override

@@ -11,7 +11,7 @@ public interface IStuClassService {
 	
 	public void addStuClass(StuClass sc);
 	public void updateStuClass(StuClass sc);
-	public Map<String,Object> findStuClassById(int id);
+	public StuClass findStuClassById(int id);
 	
 	public String findClassNamesByIds(String ids);
 }

@@ -12,5 +12,5 @@ public interface ITeacherService {
 	public void updateTeacher(Teacher teacher,int oldid);
 	public Map<String,Object> findTeacherInfo(int id) ;
 	
-	public List<Map<String, Object>> findClassesByTeacherId(int teacherId);
+	public Teacher findClassesByTeacherId(int teacherId);
 }

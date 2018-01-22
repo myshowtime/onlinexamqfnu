@@ -17,14 +17,12 @@ public class TeacherService implements ITeacherService{
 
 	@Override
 	public void addTeacher(Teacher teacher) {
-		// TODO Auto-generated method stub
-		
+		td.addTeacher(teacher);
 	}
 
 	@Override
-	public void updateTeacher(Teacher teacher, int oldid) {
-		// TODO Auto-generated method stub
-		
+	public void updateTeacher(Teacher teacher, int oldId) {
+		td.updateTeacher(teacher, oldId);
 	}
 
 	@Override
@@ -34,9 +32,8 @@ public class TeacherService implements ITeacherService{
 	}
 
 	@Override
-	public List<Map<String, Object>> findClassesByTeacherId(int teacherId) {
-		// TODO Auto-generated method stub
-		return null;
+	public Teacher findClassesByTeacherId(int teacherId) {
+		return td.findClassesByTeacherId(teacherId);
 	}
 
 }

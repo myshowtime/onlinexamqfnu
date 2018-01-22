@@ -19,5 +19,5 @@ public interface ITeacherDao {
 	 *            教师ID号
 	 * @return 返回查询的结果集，包括负责的班级的id号和班级名称等
 	 */
-	public List<Map<String, Object>> findClassesByTeacherId(int teacherId);
+	public Teacher findClassesByTeacherId(int teacherId);
 }

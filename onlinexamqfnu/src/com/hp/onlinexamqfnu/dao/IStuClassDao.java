@@ -9,7 +9,7 @@ public interface IStuClassDao {
 
 	public List<StuClass> findAllStuClassInfo();
 
-	public Map<String, Object> findStuClassById(int classId) ;
+	public StuClass findStuClassById(int classId) ;
 
 	public void addStuClassById(StuClass sc) ;
 

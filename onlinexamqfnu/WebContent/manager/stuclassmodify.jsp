@@ -11,7 +11,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>无标题文档</title>
+<title>班级信息修改</title>
 <link href="../css/style.css" rel="stylesheet" type="text/css" />
 <style>
 p {
@@ -98,14 +98,14 @@ textarea {
 			<table width="1200" border="0" align="center" class="word_darkGrey">
 				<tr>
 					<td>班级编号：</td>
-					<td><label> <input type="text" name="clanum" id="clanum" readonly="readonly" value="${stuClassMap.classId }"/>
+					<td><label> <input type="text" name="clanum" id="clanum" readonly="readonly" value="${stuClassMap.id }"/>
 					</label></td>
 					<td align="center"><font color="#FF0000" size="-1"><div
 								id="name_hint"></div></font></td>
 				</tr>
 				<tr>
 					<td width="103">班级名称：</td>
-					<td width="240"><label> <input type="text" name="claname" id="claname" value="${stuClassMap.className }"/>
+					<td width="240"><label> <input type="text" name="claname" id="claname" value="${stuClassMap.name }"/>
 					</label></td>
 					<td>同一学期的班级名称请不要起重复的名称</td>
 					<td width="305" align="center"><font color="#FF0000" size="-1"><div

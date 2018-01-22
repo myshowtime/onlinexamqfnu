@@ -23,14 +23,12 @@ public class StuClassService implements IStuClassService{
 
 	@Override
 	public void updateStuClass(StuClass sc) {
-		// TODO Auto-generated method stub
-		
+		scd.updateStuClassById(sc);
 	}
 
 	@Override
-	public Map<String, Object> findStuClassById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public StuClass findStuClassById(int id) {
+		return scd.findStuClassById(id);
 	}
 
 	@Override

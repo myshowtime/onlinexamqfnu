@@ -23,8 +23,7 @@ public class CourseService implements ICourseService{
 
 	@Override
 	public Course findCourseById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return cd.findCourseById(id);
 	}
 
 	@Override
@@ -64,8 +63,7 @@ public class CourseService implements ICourseService{
 
 	@Override
 	public void updateCourse(Course course) {
-		// TODO Auto-generated method stub
-		
+		cd.updateCourse(course);
 	}
 
 	@Override
