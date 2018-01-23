@@ -14,6 +14,11 @@ public class TeacherService implements ITeacherService{
 		List teaList = td.findAllTeacherInfo();
 		return teaList;
 	}
+	@Override
+	public List<Teacher> findAllByName(String name) {
+		List teaList = td.findAllTeacherInfoByName(name);
+		return teaList;
+	}
 
 	@Override
 	public void addTeacher(Teacher teacher) {

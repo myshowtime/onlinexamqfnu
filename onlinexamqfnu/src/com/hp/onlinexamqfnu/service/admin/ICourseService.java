@@ -16,7 +16,7 @@ public interface ICourseService {
 	
 	public List<Course> findAllCourses() ;
 	
-	public List<Course> findAllCourses(String name);
+	public List<Course> findAllCoursesByName(String name);
 	
 	/**
 	 * 先判断一下是否存在，如果不存在，直接插入操作，如果存在，则更新

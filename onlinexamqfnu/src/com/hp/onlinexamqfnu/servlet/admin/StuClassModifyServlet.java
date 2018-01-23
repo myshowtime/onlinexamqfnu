@@ -51,7 +51,7 @@ public class StuClassModifyServlet extends HttpServlet {
 		sc.setDeptName(deptName);
 		sc.setName(className);
 		scs.updateStuClass(sc);
-		request.getRequestDispatcher("/stuClassQueryServlet").forward(request, response);
+		response.sendRedirect(getServletContext().getContextPath()+"/stuClassQueryServlet");	
 	}
 
 }

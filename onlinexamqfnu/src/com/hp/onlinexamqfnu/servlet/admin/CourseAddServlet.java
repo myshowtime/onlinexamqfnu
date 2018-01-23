@@ -38,7 +38,7 @@ public class CourseAddServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String courName = request.getParameter("courname");
 		cs.addCourse(courName);
-		request.getRequestDispatcher("/courseQueryServlet").forward(request, response);
+		response.sendRedirect(getServletContext().getContextPath()+"/courseQueryServlet");
 	}
 
 }

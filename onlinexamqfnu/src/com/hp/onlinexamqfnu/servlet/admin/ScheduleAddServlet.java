@@ -60,7 +60,7 @@ public class ScheduleAddServlet extends HttpServlet {
 		tc.setTeaId(tId);
 		tc.setCourseId(cId);
 		cs.addSchedule(tc);
-		request.getRequestDispatcher("/scheduleQueryServlet").forward(request, response);		
+		response.sendRedirect(getServletContext().getContextPath()+"/scheduleQueryServlet");	
 	}
 
 }

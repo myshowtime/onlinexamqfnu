@@ -7,7 +7,7 @@ import com.hp.onlinexamqfnu.po.Teacher;
 
 public interface ITeacherDao {
 
-	public List<Teacher> findAllTeacherInfo() ;
+	public List<Teacher> findAllTeacherInfoByName(String name) ;
 	public void addTeacher(Teacher teacher);
 	public void updateTeacher(Teacher teacher,int oldId);
 	public Teacher findTeacherInfo(int id) ;
@@ -20,4 +20,5 @@ public interface ITeacherDao {
 	 * @return 返回查询的结果集，包括负责的班级的id号和班级名称等
 	 */
 	public List<Teacher> findClassesByTeacherId(int teacherId);
+	List<Teacher> findAllTeacherInfo();
 }

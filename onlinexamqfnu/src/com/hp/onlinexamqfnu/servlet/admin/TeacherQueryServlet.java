@@ -35,13 +35,14 @@ public class TeacherQueryServlet extends HttpServlet {
 		request.setAttribute("teacherList", teaList);
 		request.getRequestDispatcher("manager/teachermanage.jsp").forward(request,response);
 	}
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String name = request.getParameter("name");
+		List teaList = ts.findAllByName(name);
+		request.setAttribute("teacherList", teaList);
+		request.getRequestDispatcher("manager/teachermanage.jsp").forward(request,response);
 	}
 
 }

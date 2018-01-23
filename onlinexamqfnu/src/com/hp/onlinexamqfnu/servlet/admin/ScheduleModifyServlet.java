@@ -61,7 +61,7 @@ public class ScheduleModifyServlet extends HttpServlet {
 		tc.setTeaId(Integer.valueOf(request.getParameter("teacher")));
 		tc.setClassId(Integer.valueOf(request.getParameter("stuclass")));
 		cs.modifyTeacherCourse(tc);
-		request.getRequestDispatcher("/scheduleQueryServlet").forward(request, response);
+		response.sendRedirect(getServletContext().getContextPath()+"/scheduleQueryServlet");	
 	}
 
 }

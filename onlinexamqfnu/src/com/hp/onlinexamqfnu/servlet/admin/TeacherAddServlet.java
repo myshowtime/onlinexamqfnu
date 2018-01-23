@@ -51,7 +51,7 @@ public class TeacherAddServlet extends HttpServlet {
 		t.setName(teaName);
 		t.setpwd(teaPwd);
 		ts.addTeacher(t);
-		request.getRequestDispatcher("/teacherQueryServlet").forward(request,response);
+		response.sendRedirect(getServletContext().getContextPath()+"/teacherQueryServlet");
 	}
 
 }

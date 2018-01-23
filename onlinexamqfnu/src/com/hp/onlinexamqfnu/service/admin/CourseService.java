@@ -31,8 +31,8 @@ public class CourseService implements ICourseService{
 	}
 
 	@Override
-	public List<Course> findAllCourses(String name) {
-		return null;
+	public List<Course> findAllCoursesByName(String name) {
+		return cd.findAllCoursesByName(name);
 	}
 
 	@Override

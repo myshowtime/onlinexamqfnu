@@ -64,8 +64,6 @@ public class StudentAddServlet extends HttpServlet {
 		s.setDeptName(stuDeptName);
 		s.setClassId(stuClassId);
 		ss.addStudent(s);
-		request.getRequestDispatcher("/studentQueryServlet").forward(request,response );
+		response.sendRedirect(getServletContext().getContextPath()+"/studentQueryServlet");	}
 	}
 	
-
-}

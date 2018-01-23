@@ -2,7 +2,8 @@ package com.hp.onlinexamqfnu.dao;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+
+import org.apache.log4j.Logger;
 
 import com.hp.onlinexamqfnu.po.Teacher;
 import com.hp.onlinexamqfnu.util.DBUtil;
@@ -11,10 +12,22 @@ public class TeacherDao implements ITeacherDao{
 	DBUtil db = new DBUtil();
 	@Override
 	public List<Teacher> findAllTeacherInfo() {
-		String sql = "Select * From teacher";
+		String sql = "Select * From teacher ";
 		List teaList = null;
 		try {
 			teaList = db.getQueryList(Teacher.class,sql,new Object[] {});
+		}catch(Exception e) {
+			teaList = new ArrayList();
+			e.printStackTrace();
+		}
+		return teaList;
+	}
+	public List<Teacher> findAllTeacherInfoByName(String name) {
+		name = "%"+name+"%";
+		String sql = "Select * From teacher where name like ?";
+		List teaList = null;
+		try {
+			teaList = db.getQueryList(Teacher.class,sql,new Object[] {name});
 		}catch(Exception e) {
 			teaList = new ArrayList();
 			e.printStackTrace();

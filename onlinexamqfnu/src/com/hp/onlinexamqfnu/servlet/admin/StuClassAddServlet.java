@@ -50,7 +50,7 @@ public class StuClassAddServlet extends HttpServlet {
 		/**
 		 * 添加完班级后，需要重新做查询。因为已经做过查询功能，只需跳转查询servlet就可以。
 		 */
-		request.getRequestDispatcher("/stuClassQueryServlet").forward(request, response);;
+		response.sendRedirect(getServletContext().getContextPath()+"/stuClassQueryServlet");	
 	}
 
 }

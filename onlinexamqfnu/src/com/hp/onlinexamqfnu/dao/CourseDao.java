@@ -112,8 +112,16 @@ public class CourseDao implements ICourseDao{
 
 	@Override
 	public List<Course> findAllCoursesByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		name = "%"+name+"%";
+		String sql = "Select * from course where name like ?";
+		List courseList = null;
+		try {
+			courseList = db.getQueryList(Course.class,sql,new Object[] {name});
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return courseList;
 	}
 
 	@Override

@@ -53,7 +53,7 @@ public class TeacherModifyServlet extends HttpServlet {
 		t.setName(teaName);
 		t.setpwd(teaPwd);
 		ts.updateTeacher(t,Integer.valueOf(teaId));
-		request.getRequestDispatcher("/teacherQueryServlet").forward(request, response);
+		response.sendRedirect(getServletContext().getContextPath()+"/teacherQueryServlet");
 	}
 
 }

@@ -48,6 +48,6 @@ public class CourseModifyServlet extends HttpServlet {
 		c.setId(id);
 		c.setName(courseName);
 		cs.updateCourse(c);
-		request.getRequestDispatcher("/courseQueryServlet").forward(request, response);
+		response.sendRedirect(getServletContext().getContextPath()+"/courseQueryServlet");
 	}
 }
