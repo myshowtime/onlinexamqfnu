@@ -41,8 +41,15 @@ public class QuestionDao implements IQuestionDao{
 
 	@Override
 	public Map<String, Object> findQuestionById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Map<String ,Object> q  = null;
+		String sql = "select * from questions where id = ?";
+		try {
+			q= db.getObject(sql,new Object [] {id});
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return q;
 	}
 
 	@Override
@@ -53,13 +60,17 @@ public class QuestionDao implements IQuestionDao{
 
 	@Override
 	public void updateQuestionInfo(Question q) {
-		String 
-		
+		String sql = "update questions set courseId = ?, queType = ?, queTitle = ?, choiceA = ?, choiceB = ?,choiceC = ?, choiceD = ?, ans = ? where id = ?";
+		try {
+			db.execute(sql,new Object[] {q.getCourseId(),q.getQueType(),q.getQueTitle(),q.getChoiceA(),q.getChoiceB(),q.getChoiceC(),q.getChoiceD(),q.getAns(),q.getId()});
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public List<Map<String, Object>> findQuestionsByCourseId(int courseId) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

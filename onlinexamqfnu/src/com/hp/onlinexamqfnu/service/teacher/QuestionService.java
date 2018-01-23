@@ -23,13 +23,13 @@ public class QuestionService implements IQuestionService{
 	@Override
 	public Map<String, Object> findQuestionById(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return qd.findQuestionById(id);
 	}
 
 	@Override
 	public void updateQuestionInfo(Question q) {
 		// TODO Auto-generated method stub
-		
+		qd.updateQuestionInfo(q);
 	}
 
 	@Override
