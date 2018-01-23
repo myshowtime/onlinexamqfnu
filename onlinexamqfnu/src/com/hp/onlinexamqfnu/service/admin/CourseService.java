@@ -2,8 +2,8 @@ package com.hp.onlinexamqfnu.service.admin;
 
 import java.util.List;
 
-import com.hp.onlinexamqfnu.dao.CourseDao;
-import com.hp.onlinexamqfnu.dao.ICourseDao;
+import com.hp.onlinexamqfnu.dao.admin.CourseDao;
+import com.hp.onlinexamqfnu.dao.admin.ICourseDao;
 import com.hp.onlinexamqfnu.po.Course;
 import com.hp.onlinexamqfnu.po.TeacherCourse;
 import com.hp.onlinexamqfnu.vo.TeacherCourseView;

@@ -1,4 +1,4 @@
-package com.hp.onlinexamqfnu.dao;
+package com.hp.onlinexamqfnu.dao.teacher;
 
 import java.util.List;
 import java.util.Map;
@@ -18,7 +18,7 @@ public interface IQuestionDao {
 	 * @param ids
 	 * @return
 	 */
-	public List<Map<String, Object>> findQuestionByIds(String ids) ;
+	public List<Question> findQuestionByIds(String ids) ;
 
 	public void updateQuestionInfo(Question q);
 

@@ -1,4 +1,4 @@
-package com.hp.onlinexamqfnu.service.admin;
+package com.hp.onlinexamqfnu.service.login;
 
 import com.hp.onlinexamqfnu.po.Student;
 import com.hp.onlinexamqfnu.po.Teacher;
@@ -10,6 +10,6 @@ import com.hp.onlinexamqfnu.po.Teacher;
  */
 public interface ILoginService {
 
-	public Teacher canLogin(String name, String pwd);
-	public Student canLogin(int name, String pwd);
+	public Teacher canLogin(Teacher t);
+	public Student canLogin(Student s);
 }

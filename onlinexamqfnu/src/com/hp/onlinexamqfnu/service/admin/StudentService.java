@@ -3,8 +3,8 @@ package com.hp.onlinexamqfnu.service.admin;
 import java.util.List;
 import java.util.Map;
 
-import com.hp.onlinexamqfnu.dao.IStudentDao;
-import com.hp.onlinexamqfnu.dao.StudentDao;
+import com.hp.onlinexamqfnu.dao.admin.IStudentDao;
+import com.hp.onlinexamqfnu.dao.admin.StudentDao;
 import com.hp.onlinexamqfnu.po.Student;
 
 public class StudentService implements IStudentService{

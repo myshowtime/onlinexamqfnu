@@ -1,4 +1,4 @@
-package com.hp.onlinexamqfnu.service.admin;
+package com.hp.onlinexamqfnu.service.teacher;
 
 import java.util.List;
 

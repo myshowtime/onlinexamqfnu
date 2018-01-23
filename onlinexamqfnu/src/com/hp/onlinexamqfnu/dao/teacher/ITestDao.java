@@ -1,4 +1,4 @@
-package com.hp.onlinexamqfnu.dao;
+package com.hp.onlinexamqfnu.dao.teacher;
 
 import java.util.List;
 import java.util.Map;
@@ -17,7 +17,7 @@ public interface ITestDao {
 	 * @param teaId
 	 * @return
 	 */
-	public List<Map<String, Object>> findTestsById(int id, int teaId) ;
+	public Map<String, Object> findTestById(int id, int teaId) ;
 	public Map<String, Object> findStudentTestsById(int studentid,int testid);
 	public List<Map<String,Object>> getTestByStudent(int id,String currData);
 }

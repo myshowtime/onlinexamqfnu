@@ -3,8 +3,9 @@ package com.hp.onlinexamqfnu.service.admin;
 import java.util.List;
 import java.util.Map;
 
-import com.hp.onlinexamqfnu.dao.TeacherDao;
+import com.hp.onlinexamqfnu.dao.admin.TeacherDao;
 import com.hp.onlinexamqfnu.po.Teacher;
+import com.hp.onlinexamqfnu.service.teacher.ITeacherService;
 
 public class TeacherService implements ITeacherService{
 	

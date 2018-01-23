@@ -1,4 +1,4 @@
-package com.hp.onlinexamqfnu.dao;
+package com.hp.onlinexamqfnu.dao.teacher;
 
 import java.util.List;
 
@@ -12,6 +12,6 @@ public interface IPapersDao {
 	
 	public List getPaperByStudentId(int studentId);
 	
-	//所有的班级成绩。
-	public List getPaperCompare();
+	//所有的班级平级成绩。
+	public List getPaperCompare(int teaId);
 }

@@ -13,9 +13,9 @@ import com.hp.onlinexamqfnu.po.TeacherCourse;
 import com.hp.onlinexamqfnu.service.admin.CourseService;
 import com.hp.onlinexamqfnu.service.admin.ICourseService;
 import com.hp.onlinexamqfnu.service.admin.IStuClassService;
-import com.hp.onlinexamqfnu.service.admin.ITeacherService;
 import com.hp.onlinexamqfnu.service.admin.StuClassService;
 import com.hp.onlinexamqfnu.service.admin.TeacherService;
+import com.hp.onlinexamqfnu.service.teacher.ITeacherService;
 
 /**
  * Servlet implementation class ScheduleAddServlet

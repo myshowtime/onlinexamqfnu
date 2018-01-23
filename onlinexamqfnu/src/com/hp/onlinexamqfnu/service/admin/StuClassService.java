@@ -3,8 +3,8 @@ package com.hp.onlinexamqfnu.service.admin;
 import java.util.List;
 import java.util.Map;
 
-import com.hp.onlinexamqfnu.dao.IStuClassDao;
-import com.hp.onlinexamqfnu.dao.StuClassDao;
+import com.hp.onlinexamqfnu.dao.admin.IStuClassDao;
+import com.hp.onlinexamqfnu.dao.admin.StuClassDao;
 import com.hp.onlinexamqfnu.po.StuClass;
 
 public class StuClassService implements IStuClassService{

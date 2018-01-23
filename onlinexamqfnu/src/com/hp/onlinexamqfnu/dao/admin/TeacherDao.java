@@ -1,9 +1,7 @@
-package com.hp.onlinexamqfnu.dao;
+package com.hp.onlinexamqfnu.dao.admin;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import org.apache.log4j.Logger;
 
 import com.hp.onlinexamqfnu.po.Teacher;
 import com.hp.onlinexamqfnu.util.DBUtil;

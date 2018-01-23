@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.hp.onlinexamqfnu.po.Teacher;
-import com.hp.onlinexamqfnu.service.admin.ITeacherService;
 import com.hp.onlinexamqfnu.service.admin.TeacherService;
+import com.hp.onlinexamqfnu.service.teacher.ITeacherService;
 import com.hp.onlinexamqfnu.util.Department;
 
 /**

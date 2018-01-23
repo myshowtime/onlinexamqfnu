@@ -1,11 +1,17 @@
 package com.hp.onlinexamqfnu.servlet.login;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.hp.onlinexamqfnu.po.Student;
+import com.hp.onlinexamqfnu.po.Teacher;
+import com.hp.onlinexamqfnu.service.login.ILoginService;
+import com.hp.onlinexamqfnu.service.login.LoginService;
 
 /**
  * Servlet implementation class LoginServlet
@@ -29,7 +35,9 @@ public class LoginServlet extends HttpServlet {
 	 *4.页面跳转
 	 */
 	private static final long serialVersionUID = 1L;
-    
+    private ILoginService ls = new LoginService();
+    private Teacher t = null;
+	private Student s = null;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -52,9 +60,20 @@ public class LoginServlet extends HttpServlet {
 		String userName = request.getParameter("username");
 		String userPwd = request.getParameter("password");
 		String userRole = request.getParameter("role");
+		
 		if("admin".equals(userRole)) {
 			if("admin".equals(userName) && "123".equals(userPwd)){
 				response.sendRedirect("manager/mindex.jsp");
+			}
+		}
+		else if("teacher".equals(userRole)) {
+			t=new Teacher();
+			t.setName(userName);
+			t.setpwd(userPwd);
+			t = ls.canLogin(t);
+			if(t!=null) {
+				request.getSession().setAttribute("user", t);
+				response.sendRedirect("teacher/tindex.jsp");
 			}
 		}
 		

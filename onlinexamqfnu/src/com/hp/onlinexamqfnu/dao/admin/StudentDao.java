@@ -1,4 +1,4 @@
-package com.hp.onlinexamqfnu.dao;
+package com.hp.onlinexamqfnu.dao.admin;
 
 import java.util.ArrayList;
 import java.util.List;
