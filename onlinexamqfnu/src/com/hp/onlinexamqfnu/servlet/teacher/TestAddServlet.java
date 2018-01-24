@@ -101,7 +101,7 @@ public class TestAddServlet extends HttpServlet {
 		t.setScores(sinScores);
 		t.setName(testName);
 		t.setTeacherId(teacherId);
-		
+		ts.createTest(t);
 		request.setAttribute("c",c);
 		request.setAttribute("classNames", classNames);
 		request.setAttribute("quesList", questionList);
