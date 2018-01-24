@@ -1,5 +1,7 @@
 package com.hp.onlinexamqfnu.service.teacher;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -40,10 +42,19 @@ public class QuestionService implements IQuestionService{
 
 	@Override
 	public List<Map<String, Object>> collectQuestions(int courseId, int num) {
-		// TODO Auto-generated method stub
-		return null;
+		/**
+		 * 1.根据课程id产讯出符合条件的试题集合
+		 * 2.试题随机，把试题顺序打乱
+		 * 3.如果试题数量足够，取钱num道题，如果不够，取所有试题
+		 */
+		List<Map<String,Object>> questionList = qd.findQuestionsByCourseId(courseId);
+		if(null==questionList || questionList.size()<1)
+			return new ArrayList();
+		Collections.shuffle(questionList);
+		if(questionList.size()>num)
+			return questionList.subList(0, num);
+		else return questionList;
 	}
-
 	@Override
 	public String testQuestionIds(List<Map<String, Object>> list) {
 		// TODO Auto-generated method stub
@@ -55,6 +66,4 @@ public class QuestionService implements IQuestionService{
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	
 }

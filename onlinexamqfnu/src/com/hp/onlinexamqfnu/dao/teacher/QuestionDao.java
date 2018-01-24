@@ -1,5 +1,6 @@
 package com.hp.onlinexamqfnu.dao.teacher;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -71,7 +72,15 @@ public class QuestionDao implements IQuestionDao{
 
 	@Override
 	public List<Map<String, Object>> findQuestionsByCourseId(int courseId) {
-		return null;
+		String sql = "select * from questions where courseId = ?";
+		List questionList = new ArrayList();
+		try {
+			questionList = db.getQueryList(sql,new Object[] {courseId});
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return questionList;
 	}
 
 	@Override

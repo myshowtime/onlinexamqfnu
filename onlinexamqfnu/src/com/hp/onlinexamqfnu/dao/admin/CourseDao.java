@@ -66,13 +66,13 @@ public class CourseDao implements ICourseDao{
 	@Override
 	public Course findCourseById(int id) {
 		String sql = "select * from course where id = ?";
+		Course c = new Course();
 		try {
-			return (Course)db.getObject(Course.class,sql,new Object[] {id});
+			 c = (Course)db.getObject(Course.class,sql,new Object[] {id});
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return null;
 		}
+		return c;
 	}
 
 	@Override
@@ -152,6 +152,19 @@ public class CourseDao implements ICourseDao{
 	public void deleteCourse(int tcId) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public List<Course> findCoursesByTeacherId(long id) {
+		String sql = "Select DISTINCT c.id,c.name from course as c, teachercourse as tc where c.id = tc.courseId and tc.teaId = ?";
+		List cList = null;
+		try {
+			cList = db.getQueryList(Course.class,sql,new Object[] {id});
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace( );
+		}
+		return cList;
 	}
 
 }

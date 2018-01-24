@@ -14,4 +14,5 @@ public interface IStuClassService {
 	public StuClass findStuClassById(int id);
 	
 	public String findClassNamesByIds(String ids);
+	public List<StuClass> findAllStuClassByTeacherId(long id);
 }

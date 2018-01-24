@@ -69,4 +69,5 @@ public interface ICourseDao {
 	public List<TeacherCourseView> findTeaCourInfoByCourseKey(String courseKey) ;
 
 	public void deleteCourse(int tcId);
+	public List<Course> findCoursesByTeacherId(long id);
 }

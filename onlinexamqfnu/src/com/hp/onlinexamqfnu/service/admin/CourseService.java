@@ -66,4 +66,10 @@ public class CourseService implements ICourseService{
 	public void addSchedule(TeacherCourse tc) {
 		cd.addTeacherCourse(tc);
 	}
+
+	@Override
+	public List<Course> findAllCoursesByTeacherId(long id) {
+		// TODO Auto-generated method stub
+		return cd.findCoursesByTeacherId(id);
+	}
 }

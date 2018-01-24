@@ -33,8 +33,21 @@ public class StuClassService implements IStuClassService{
 
 	@Override
 	public String findClassNamesByIds(String ids) {
+		List<Map<String ,Object>> nameList = scd.findClassNamesByIds(ids);
+		StringBuffer sb = new StringBuffer();
+		//如果字符串多次拼接要使用stringbuffer
+		if(nameList == null || nameList.size()<1)
+			return "";
+		else
+			for (Map<String,Object> name : nameList) {
+				sb.append(name.get("name")).append(" ");
+			}
+		return sb.toString();
+	}
+	@Override
+	public List<StuClass> findAllStuClassByTeacherId(long id) {
 		// TODO Auto-generated method stub
-		return null;
+		return scd.findAllStuClassByTeacherId(id);
 	}
 	
 }

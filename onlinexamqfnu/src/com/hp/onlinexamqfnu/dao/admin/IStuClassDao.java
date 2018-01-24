@@ -15,5 +15,7 @@ public interface IStuClassDao {
 
 	public void updateStuClassById(StuClass sc) ;
 	
-	public String findClassNamesByIds(String ids);
+	public List findClassNamesByIds(String ids);
+	
+	public List<StuClass> findAllStuClassByTeacherId(long id);
 }
