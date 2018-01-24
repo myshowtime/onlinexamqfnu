@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.hp.onlinexamqfnu.po.Course;
 import com.hp.onlinexamqfnu.po.Teacher;
+import com.hp.onlinexamqfnu.po.Test;
 import com.hp.onlinexamqfnu.service.admin.CourseService;
 import com.hp.onlinexamqfnu.service.admin.ICourseService;
 import com.hp.onlinexamqfnu.service.admin.IStuClassService;
@@ -66,17 +67,46 @@ public class TestAddServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		int testTime= Integer.valueOf(request.getParameter("testtime"));
-		int sinScores = Integer.valueOf(request.getParameter("sinscores"));
+		String sinScores = request.getParameter("sinscores");
 		int sinNum = Integer.valueOf(request.getParameter("sinnum"));
 		int courseId = Integer.valueOf(request.getParameter("courseid"));
 		String []classIds = request.getParameterValues("classCheck");
 		String testName = request.getParameter("testname");
-		
+		int teacherId = ((Teacher)request.getSession().getAttribute("user")).getId();
+		/**
+		 * 查找相应课程
+		 */
 		Course c = cs.findCourseById(courseId);
+		/**
+		 * 查找相应班级
+		 */
 		String classIdsToStr = ToolUtil.arraytoString(classIds);//将Id数组转换为字符串
 		String classNames = scs.findClassNamesByIds(classIdsToStr);
-		/*业务方面：查找相应题目*/
+		/**
+		 *业务方面：查找相应题目
+		 */
 		List<Map<String ,Object>> questionList = qs.collectQuestions(courseId, sinNum);
+		/**
+		 * 向页面传递信息
+		 */
+		/**
+		 * 封转Test对象	
+		 */
+		Test t = new Test();
+		String quesIds = qs.testQuestionIds(questionList);
+		t.setClassIds(quesIds);
+		t.setCourseId(courseId);
+		t.setClassIds(classIdsToStr);
+		t.setEndDate(endDate);
+		t.setScores(sinScores);
+		t.setName(testName);
+		t.setTeacherId(teacherId);
+		
+		request.setAttribute("c",c);
+		request.setAttribute("classNames", classNames);
+		request.setAttribute("quesList", questionList);
+		request.getRequestDispatcher("teacher/test.jsp").forward(request, response);
+		
 	}
 
 }
