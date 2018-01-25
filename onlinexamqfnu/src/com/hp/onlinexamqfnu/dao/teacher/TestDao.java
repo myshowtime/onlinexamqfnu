@@ -1,6 +1,7 @@
 package com.hp.onlinexamqfnu.dao.teacher;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -49,14 +50,29 @@ public class TestDao implements ITestDao{
 
 	@Override
 	public Map<String, Object> findStudentTestsById(int studentid, int testid) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql  = "select t.name testName,c.id courseId,t.testTime,t.scores,t.id,t.classIds,t.endDate ,c.name courseName,t.questions,sc.name className from test as t ,course as c ,stuclass as sc where t.id = ? and c.id = t.courseId and sc.id = (Select classId from student where id = ?)";
+		Map<String,Object> testMap = new HashMap();
+		try {
+			testMap = db.getObject(sql, new Object[] {testid,studentid});
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return testMap;
 	}
 
 	@Override
 	public List<Map<String, Object>> getTestByStudent(int id, String currData) {
 		// TODO Auto-generated method stub
-		return null;
+		String sql = "select DISTINCT t.id,t.name testName,t.courseId,c.name courseName ,t.endDate,t.classIds from test t,course c,student s where t.courseId =c.id and FIND_IN_SET(s.classId,t.classIds)and t.id not in (select testId from papers where studentId = ?)and s.id = ? and endDate > ?";
+		List stuRecentTests = new ArrayList();
+		try {
+			stuRecentTests = db.getQueryList(sql,new Object[] {id,id,currData});
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return stuRecentTests;
 	}
 	
 

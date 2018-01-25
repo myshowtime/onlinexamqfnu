@@ -36,13 +36,13 @@ public class TestService implements ITestService {
 	@Override
 	public Map<String, Object> findStudentTestsById(int studentid, int testid) {
 		// TODO Auto-generated method stub
-		return null;
+		return td.findStudentTestsById(studentid, testid);
 	}
 
 	@Override
 	public List<Map<String, Object>> getTestByStudent(int id, String currData) {
 		// TODO Auto-generated method stub
-		return null;
+		return td.getTestByStudent(id, currData);
 	}
 	
 

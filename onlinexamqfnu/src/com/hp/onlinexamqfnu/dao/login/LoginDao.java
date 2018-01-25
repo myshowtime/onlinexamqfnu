@@ -21,7 +21,7 @@ public class LoginDao implements ILoginDao{
 
 	@Override
 	public Student canLogin(Student s) {
-		String sql = "select * from teacher where name = ? and pwd = ?";
+		String sql = "select * from student where name = ? and pwd = ?";
 		Student sReturn = null;
 		try {
 			sReturn= (Student)db.getObject(Student.class,sql,new Object[] {s.getName(),s.getPwd()});

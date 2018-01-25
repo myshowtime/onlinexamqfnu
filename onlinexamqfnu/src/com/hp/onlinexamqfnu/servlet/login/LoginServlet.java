@@ -76,7 +76,16 @@ public class LoginServlet extends HttpServlet {
 				response.sendRedirect("teacher/tindex.jsp");
 			}
 		}
-		
+		else if("student".equals(userRole)) {
+			s=new Student();
+			s.setName(userName);
+			s.setPwd(userPwd);
+			s = ls.canLogin(s);
+			if(s!=null) {
+				request.getSession().setAttribute("user", s);
+				response.sendRedirect("student/index.jsp");
+			}
+		}
 	}
 
 }

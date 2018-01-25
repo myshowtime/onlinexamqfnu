@@ -91,10 +91,10 @@ public class QuestionDao implements IQuestionDao{
 
 	@Override
 	public List<Map<String, Object>> findQuestionsByIds(String ids) {
-		String sql = "Select * from questions where find_in_set(id,?)";
+		String sql = "Select * from questions where find_in_set(id,?) order by find_in_set(id,?)";
 		List<Map<String,Object>> questionList = new ArrayList();
 		try {
-			 questionList = db.getQueryList(sql,new Object[] {ids});
+			 questionList = db.getQueryList(sql,new Object[] {ids,ids});
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
