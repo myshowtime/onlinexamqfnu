@@ -2,6 +2,7 @@ package com.hp.onlinexamqfnu.dao.admin;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import com.hp.onlinexamqfnu.po.Course;
 import com.hp.onlinexamqfnu.po.TeacherCourse;
@@ -74,7 +75,6 @@ public class CourseDao implements ICourseDao{
 		}
 		return c;
 	}
-
 	@Override
 	public void addTeacherCourse(TeacherCourse tc) {
 		String sql = "Insert into teachercourse(teaId, courseId, classId) values(?, ?, ?)";

@@ -3,7 +3,13 @@ package com.hp.onlinexamqfnu.service.teacher;
 import java.util.List;
 import java.util.Map;
 
+import com.hp.onlinexamqfnu.dao.admin.CourseDao;
+import com.hp.onlinexamqfnu.dao.admin.ICourseDao;
+import com.hp.onlinexamqfnu.dao.admin.IStuClassDao;
+import com.hp.onlinexamqfnu.dao.admin.StuClassDao;
+import com.hp.onlinexamqfnu.dao.teacher.IQuestionDao;
 import com.hp.onlinexamqfnu.dao.teacher.ITestDao;
+import com.hp.onlinexamqfnu.dao.teacher.QuestionDao;
 import com.hp.onlinexamqfnu.dao.teacher.TestDao;
 import com.hp.onlinexamqfnu.po.Test;
 
@@ -18,13 +24,13 @@ public class TestService implements ITestService {
 	@Override
 	public List<Map<String, Object>> findTestsByTeaId(int teaId) {
 		// TODO Auto-generated method stub
-		return null;
+		return td.findTestsByTeaId(teaId);
 	}
 
 	@Override
-	public List<Map<String, Object>> findTestsById(int id, int teaId) {
-		// TODO Auto-generated method stub
-		return null;
+	public Map<String, Object> findTestById(int id, int teaId) {
+		Map<String ,Object> testMap = td.findTestById(id, teaId);
+		return testMap;
 	}
 
 	@Override

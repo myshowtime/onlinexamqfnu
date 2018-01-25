@@ -1,10 +1,12 @@
 package com.hp.onlinexamqfnu.dao.teacher;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import com.hp.onlinexamqfnu.po.Test;
 import com.hp.onlinexamqfnu.util.DBUtil;
+import com.hp.onlinexamqfnu.util.ToolUtil;
 
 public class TestDao implements ITestDao{
 	DBUtil db = new DBUtil();
@@ -21,14 +23,28 @@ public class TestDao implements ITestDao{
 	}
 	@Override
 	public List<Map<String, Object>> findTestsByTeaId(int teaId) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "SELECT t.*,c.name courseName ,GROUP_CONCAT(sc.name) classNames from test t, course c, stuclass sc where t.courseId = c.id and FIND_IN_SET(sc.id,t.classIds) and t.teacherId = ? and t.endDate > ? GROUP BY t.id";
+		List<Map<String,Object>> testList = new ArrayList();
+		try {
+			testList = db.getQueryList(sql, new Object[] {teaId,ToolUtil.getCurrentTime()});
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return testList;
 	}
 
 	@Override
 	public Map<String, Object> findTestById(int id, int teaId) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "select * from test where id = ? and teacherId = ? ";
+		Map<String ,Object> testMap = null;
+		try {
+			testMap = db.getObject(sql,new Object[] {id,teaId});
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return testMap;
 	}
 
 	@Override

@@ -94,19 +94,19 @@ public class TestAddServlet extends HttpServlet {
 		 */
 		Test t = new Test();
 		String quesIds = qs.testQuestionIds(questionList);
-		t.setClassIds(quesIds);
 		t.setCourseId(courseId);
 		t.setClassIds(classIdsToStr);
 		t.setEndDate(endDate);
 		t.setScores(sinScores);
 		t.setName(testName);
-		t.setTeacherId(teacherId);
-		ts.createTest(t);
+		t.setTestTime(testTime);
+		t.setQuetions(quesIds);
 		request.setAttribute("c",c);
 		request.setAttribute("classNames", classNames);
 		request.setAttribute("quesList", questionList);
+		request.setAttribute("test", t);
+		request.getSession().setAttribute("test", t);
 		request.getRequestDispatcher("teacher/test.jsp").forward(request, response);
-		
 	}
 
 }

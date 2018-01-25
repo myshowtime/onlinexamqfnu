@@ -31,5 +31,7 @@ public interface IQuestionDao {
 	public List<Map<String, Object>> findQuestionsByCourseId(int courseId);
 
 	public void deleteQuestion(int id) ;
+	
+	public List<Map<String ,Object>> findQuestionsByIds(String ids);
 
 }

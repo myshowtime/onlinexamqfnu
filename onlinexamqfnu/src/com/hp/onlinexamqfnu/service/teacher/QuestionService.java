@@ -57,13 +57,16 @@ public class QuestionService implements IQuestionService{
 	}
 	@Override
 	public String testQuestionIds(List<Map<String, Object>> list) {
-		// TODO Auto-generated method stub
-		return null;
+		StringBuffer sb = new StringBuffer();
+		for(int i =0;i<list.size()-1;i++)
+			sb.append(list.get(i).get("id")).append(",");
+		sb.append(list.get(list.size()-1).get("id"));
+		return sb.toString();
 	}
 
 	@Override
 	public List<Map<String, Object>> findQuestionByIds(String ids) {
 		// TODO Auto-generated method stub
-		return null;
+		return qd.findQuestionsByIds(ids);
 	}
 }
