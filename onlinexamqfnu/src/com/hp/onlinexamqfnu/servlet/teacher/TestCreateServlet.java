@@ -43,6 +43,7 @@ public class TestCreateServlet extends HttpServlet {
 		Test test = (Test)request.getSession().getAttribute("test");
 		test.setTeacherId(teacher.getId());
 		ts.createTest(test);
+		request.getSession().removeAttribute("test");
 		response.sendRedirect(getServletContext().getContextPath()+"/testQueryServlet");
 	}
 

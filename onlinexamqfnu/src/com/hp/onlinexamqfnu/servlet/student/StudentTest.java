@@ -58,6 +58,7 @@ public class StudentTest extends HttpServlet {
 		request.setAttribute("scoreperques", scoreperques);
 		request.setAttribute("test", testMap);
 		request.setAttribute("quesList", questionList);
+		request.getSession().setAttribute("quesLis", questionList);
 		request.getRequestDispatcher("student/exam.jsp").forward(request, response);
 	}
 	/**
@@ -70,7 +71,7 @@ public class StudentTest extends HttpServlet {
 		StringBuffer sbOfWrongId = new StringBuffer();
 		StringBuffer sbOfWrongAns = new StringBuffer();
 		Map<String ,Object> testMap = new HashMap();
-		List<Map<String,Object>> quesList = new ArrayList();
+		List<Map<String,Object>> quesList = (List<Map<String, Object>>) request.getSession().getAttribute("quesList");
 		testMap = ts.findStudentTestsById(s.getId(), testId);
 		quesList = qs.findQuestionByIds((String)testMap.get("questions"));
 		float score = Integer.valueOf((String)testMap.get("scores"));
@@ -102,7 +103,6 @@ public class StudentTest extends HttpServlet {
 		p.setStudentId(s.getId());
 		p.setTestId(testId);
 		p.setTime(testTime);
-	
 		p.setWrongAns(sbOfWrongAns.toString());
 		p.setWrongQueId(sbOfWrongId.toString());
 		ps.save(p);
