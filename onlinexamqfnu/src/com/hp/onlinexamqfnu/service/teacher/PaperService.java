@@ -27,9 +27,8 @@ public class PaperService implements IPaperService{
 	}
 
 	@Override
-	public List<?> getPaperCompare() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<?> getPaperCompare(int teaId) {
+		return pd.getPaperCompare(teaId);
 	}
 
 }

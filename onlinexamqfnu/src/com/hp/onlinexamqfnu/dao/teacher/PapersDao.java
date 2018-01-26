@@ -2,6 +2,7 @@ package com.hp.onlinexamqfnu.dao.teacher;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import com.hp.onlinexamqfnu.po.Paper;
 import com.hp.onlinexamqfnu.util.DBUtil;
@@ -42,8 +43,15 @@ public class PapersDao implements IPapersDao{
 
 	@Override
 	public List getPaperCompare(int teaId) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "select avg(p.score) avgScore,sc.name className,sc.deptName ,c.name courseName,t.endDate, t.name testName from papers p,stuclass sc,course c,student s ,test t where sc.id = s.classId and s.id = p.studentId and  t.id = p.testId and t.teacherId = ? group by className,testName";
+		List<Map<String ,Object>> pList = new ArrayList();
+		try {
+			pList = db.getQueryList(sql,new Object[] {teaId});
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return pList;
 	}
 	
 

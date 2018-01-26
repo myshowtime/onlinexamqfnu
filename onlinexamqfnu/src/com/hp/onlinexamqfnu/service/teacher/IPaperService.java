@@ -19,5 +19,5 @@ public interface IPaperService {
 	 */
 	public List<?> getPaperByStudentId(int studentId);
 	
-	public List<?> getPaperCompare();
+	public List<?> getPaperCompare(int teaId);
 }
